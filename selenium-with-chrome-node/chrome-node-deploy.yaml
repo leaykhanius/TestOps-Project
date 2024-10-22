@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chrome-node
+  labels:
+    app: chrome-node
+spec:
+  replicas: 1  
+  selector:
+    matchLabels:
+      app: chrome-node
+  template:
+    metadata:
+      labels:
+        app: chrome-node
+    spec:
+      containers:
+      - name: chrome-node
+        image: browserless/chrome:latest  
+        ports:
+        - containerPort: 3000
